@@ -1,5 +1,5 @@
 /**
- * Created by Ron Choi on 14-7-7.
+ * Created by http://www.cnblogs.com/jscode/p/3580878.html
  */
 function Lottery(id, cover, coverType, width, height, drawPercentCallback) {
     this.conId = id;
