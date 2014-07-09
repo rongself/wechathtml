@@ -21,6 +21,12 @@ $(function(){
         freeModeFluid: false
     });
 
-
+    $('#soundControl').click(function(){
+        if(bgm.paused){
+            bgm.play();
+        }else{
+            bgm.pause();
+        }
+    });
 
 })

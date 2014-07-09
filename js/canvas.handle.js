@@ -51,15 +51,13 @@ Lottery.prototype = {
         this.maskCtx.fillStyle = radgrad;
         this.maskCtx.arc(x, y, 30, 0, Math.PI * 2, true);
         this.maskCtx.fill();
-        if (this.drawPercentCallback) {
-            this.drawPercentCallback.call(null, this.getTransparentPercent(this.maskCtx, this.width, this.height));
-        }
     },
     bindEvent: function () {
         var _this = this;
-        var device = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
+        var device = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|micromessenger/i.test(navigator.userAgent.toLowerCase()));
         var clickEvtName = device ? 'touchstart' : 'mousedown';
         var moveEvtName = device? 'touchmove': 'mousemove';
+        var mouseUpEvtName = device? 'touchend': 'mouseup';
         if (!device) {
             var isMouseDown = false;
             document.addEventListener('mouseup', function(e) {
@@ -87,6 +85,12 @@ Lottery.prototype = {
             var x = (device ? e.touches[0].clientX : e.clientX) - _this.clientRect.left + docEle.scrollLeft - docEle.clientLeft;
             var y = (device ? e.touches[0].clientY : e.clientY) - _this.clientRect.top + docEle.scrollTop - docEle.clientTop;
             _this.drawPoint(x, y);
+        }, false);
+        this.mask.addEventListener(mouseUpEvtName, function (e) {
+            isMouseDown = false;
+            if (_this.drawPercentCallback) {
+                _this.drawPercentCallback.call(null, _this.getTransparentPercent(_this.maskCtx, _this.width, _this.height));
+            }
         }, false);
 
         this.mask.addEventListener(moveEvtName, function (e) {
@@ -175,26 +179,25 @@ Lottery.prototype = {
     }
 }
 
-window.onload = function () {
-    var lottery = new Lottery('lotteryContainer', 'img/cv.jpg', 'image', $(window).width(),$(window).height(),drawPercent);
-    lottery.init('img/cv2.jpg', 'image');
-
-    var drawPercentNode = document.getElementById('drawPercent');
-
-    function drawPercent(percent) {
-        console.log(percent);
-        if(percent>=98){
-            $('#paint').fadeOut(300,function(){
-                $(this).remove();
-            });
-        }
-    }
-}
-
 function getRandomStr(len) {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     for( var i=0; i < len; i++ )
         text += possible.charAt(Math.floor(Math.random() * possible.length));
     return text;
+}
+
+window.onload = function () {
+    var lottery = new Lottery('lotteryContainer', 'img/cv.jpg', 'image', $(window).width(),$(window).height(),function (percent) {
+        console.log(percent);
+        if(percent>=98){
+            $('#paint').fadeOut(300,function(){
+                $(this).remove();
+                bgm.play();
+            });
+        }
+    });
+    lottery.init('img/cv2.jpg', 'image');
+
+    var drawPercentNode = document.getElementById('drawPercent');
 }

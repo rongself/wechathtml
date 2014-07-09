@@ -2,8 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="initial-scale=1">
-	<title>Simple Swiper App</title>
+    <script type="text/javascript">
+        var jsVer = 8.222;
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = phoneWidth/640;
+
+        var ua = navigator.userAgent;
+        if (/Android (\d+\.\d+)/.test(ua)){
+            var version = parseFloat(RegExp.$1);
+            // andriod 2.3
+            if(version>2.3){
+                document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+                // andriod 2.3以上
+            }else{
+                document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+            }
+            // 其他系统
+        } else {
+            document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        }
+    </script>
+
+    <title>Simple Swiper App</title>
 
 	<link rel="stylesheet" href="css/idangerous.swiper.css">
 	<link rel="stylesheet" href="css/idangerous.swiper.scrollbar.css">
@@ -27,7 +47,9 @@
     <div id="paint">
         <div id="lotteryContainer"></div>
     </div>
-
+    <a id="soundControl" href="javascript:void(0);" style="display: block;position: absolute;top: 1em;right: 1em;z-index: 9998">声音</a>
+    <p class="up icon-up"></p>
+    <audio id="bgm" src="media/bgm.mp3" ></audio>
 	<script src="js/jquery.min.js"></script>
 	<!-- Don't forget to get the latest Swiper and scrollbar version here-->
 	<script src="js/idangerous.swiper-2.0.min.js"></script>
