@@ -22,7 +22,7 @@
             document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
         }
     </script>
-
+    <script src="js/canvas.handle.js"></script>
     <title>Simple Swiper App</title>
 
 	<link rel="stylesheet" href="css/idangerous.swiper.css">
@@ -31,30 +31,39 @@
 	<link rel="stylesheet" href="css/simple-app.css">
 </head>
 <body>
+    <div id="loading">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+        <!--<p id="loadingText">正在加载..</p>-->
+    </div>
 	<div class="swiper-pages swiper-container">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
-               <img class="content-img" src="img/cv2.jpg"/>
+               <div class="bg-img bg-img-2"></div>
 			</div>
             <div class="swiper-slide">
-                <img class="content-img" src="img/cv.jpg"/>
+                <div class="bg-img bg-img-1"></div>
             </div>
             <div class="swiper-slide">
-                <img class="content-img" src="img/cv2.jpg"/>
+                <div class="bg-img bg-img-2"></div>
             </div>
 		</div>
 	</div>
     <div id="paint">
-        <div id="lotteryContainer"></div>
+        <div id="lotteryContainer">
+            <div class="bg-img bg-img-2"></div>
+            <canvas id="stage" style="position:absolute;left:0;top:0;"></canvas>
+        </div>
     </div>
-    <a id="soundControl" href="javascript:void(0);" style="display: block;position: absolute;top: 1em;right: 1em;z-index: 9998">声音</a>
+    <span id="soundControl" class="icon icon-sound"></span>
     <p class="up icon-up"></p>
-    <audio id="bgm" src="media/bgm.mp3" ></audio>
+    <audio id="bgm" src="media/bgm.mp3" loop="loop"></audio>
 	<script src="js/jquery.min.js"></script>
 	<!-- Don't forget to get the latest Swiper and scrollbar version here-->
 	<script src="js/idangerous.swiper-2.0.min.js"></script>
     <script src="js/idangerous.swiper.progress.min.js"></script>
 	<script src="js/simple-app.js"></script>
-    <script src="js/canvas.handle.js"></script>
 </body>
 </html>

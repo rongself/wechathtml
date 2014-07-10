@@ -43,13 +43,19 @@ Lottery.prototype = {
         canvas.height = height||$(window).height();
         canvas.getContext('2d').clearRect(0, 0, width, height);
     },
+    startLine:function(x,y){
+        this.maskCtx.lineWidth = 60 ;
+        this.maskCtx.lineCap = 'round';
+        this.maskCtx.moveTo(x,y);
+
+    },
+    endLine:function(x,y){
+        this.maskCtx.lineTo(x, y);
+        this.maskCtx.stroke();
+    },
     drawPoint: function (x, y) {
         this.maskCtx.beginPath();
-        var radgrad = this.maskCtx.createRadialGradient(x, y, 0, x, y, 30);
-        radgrad.addColorStop(0, 'rgba(0,0,0,1)');
-        radgrad.addColorStop(1, 'rgba(255, 255, 255, 0.8)');
-        this.maskCtx.fillStyle = radgrad;
-        this.maskCtx.arc(x, y, 30, 0, Math.PI * 2, true);
+        this.maskCtx.arc(x, y, 20, 0, Math.PI * 2, true);
         this.maskCtx.fill();
     },
     bindEvent: function () {
@@ -84,7 +90,7 @@ Lottery.prototype = {
             }
             var x = (device ? e.touches[0].clientX : e.clientX) - _this.clientRect.left + docEle.scrollLeft - docEle.clientLeft;
             var y = (device ? e.touches[0].clientY : e.clientY) - _this.clientRect.top + docEle.scrollTop - docEle.clientTop;
-            _this.drawPoint(x, y);
+            _this.startLine(x,y);
         }, false);
         this.mask.addEventListener(mouseUpEvtName, function (e) {
             isMouseDown = false;
@@ -92,39 +98,36 @@ Lottery.prototype = {
                 _this.drawPercentCallback.call(null, _this.getTransparentPercent(_this.maskCtx, _this.width, _this.height));
             }
         }, false);
-
+        var frame = 0;
         this.mask.addEventListener(moveEvtName, function (e) {
-            if (!device && !isMouseDown) {
-                return false;
+            frame++;
+            if(frame>2){
+                if (!device && !isMouseDown) {
+                    return false;
+                }
+                var docEle = document.documentElement;
+                if (!_this.clientRect) {
+                    _this.clientRect = {
+                        left: 0,
+                        top:0
+                    };
+                }
+                var x = (device ? e.touches[0].clientX : e.clientX) - _this.clientRect.left + docEle.scrollLeft - docEle.clientLeft;
+                var y = (device ? e.touches[0].clientY : e.clientY) - _this.clientRect.top + docEle.scrollTop - docEle.clientTop;
+                _this.endLine(x, y);
+                frame = 0;
             }
-            var docEle = document.documentElement;
-            if (!_this.clientRect) {
-                _this.clientRect = {
-                    left: 0,
-                    top:0
-                };
-            }
-            var x = (device ? e.touches[0].clientX : e.clientX) - _this.clientRect.left + docEle.scrollLeft - docEle.clientLeft;
-            var y = (device ? e.touches[0].clientY : e.clientY) - _this.clientRect.top + docEle.scrollTop - docEle.clientTop;
-            _this.drawPoint(x, y);
         }, false);
     },
     drawLottery: function () {
-        this.background = this.background || this.createElement('canvas', {
-            style: 'position:absolute;left:0;top:0;'
-        });
-        this.mask = this.mask || this.createElement('canvas', {
-            style: 'position:absolute;left:0;top:0;'
-        });
+        this.mask = this.mask || document.getElementById('stage');
 
         if (!this.conNode.innerHTML.replace(/[\w\W]| /g, '')) {
-            this.conNode.appendChild(this.background);
             this.conNode.appendChild(this.mask);
             this.clientRect = this.conNode ? this.conNode.getBoundingClientRect() : null;
             this.bindEvent();
         }
 
-        this.backCtx = this.backCtx || this.background.getContext('2d');
         this.maskCtx = this.maskCtx || this.mask.getContext('2d');
 
         if (this.lotteryType == 'image') {
@@ -133,15 +136,12 @@ Lottery.prototype = {
             image.onload = function () {
                 _this.width = this.width;
                 _this.height = this.height;
-                _this.resizeCanvas(_this.background);
-                _this.backCtx.drawImage(this, 0, 0,$(window).width(),$(window).height());
                 _this.drawMask();
             }
             image.src = this.lottery;
         } else if (this.lotteryType == 'text') {
             this.width = this.width;
             this.height = this.height;
-            this.resizeCanvas(this.background);
             this.backCtx.save();
             this.backCtx.fillStyle = '#FFF';
             this.backCtx.fillRect(0, 0, this.width, this.height);
@@ -189,8 +189,8 @@ function getRandomStr(len) {
 
 window.onload = function () {
     var lottery = new Lottery('lotteryContainer', 'img/cv.jpg', 'image', $(window).width(),$(window).height(),function (percent) {
-        console.log(percent);
-        if(percent>=98){
+        //console.log(percent);
+        if(percent>=60){
             $('#paint').fadeOut(300,function(){
                 $(this).remove();
                 bgm.play();
@@ -198,6 +198,6 @@ window.onload = function () {
         }
     });
     lottery.init('img/cv2.jpg', 'image');
-
     var drawPercentNode = document.getElementById('drawPercent');
+    $('#loading').fadeOut(500);
 }

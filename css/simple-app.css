@@ -2,9 +2,10 @@ body,html {
 	position: relative;
 	height: 100%;
 }
+html {font-size: 62.5%!important;}
 body {
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 1rem;
+	font-size: 1.2rem;
 	line-height: 1.5;
 	background: #222;
 	color: #fff;
@@ -155,21 +156,41 @@ input[type="submit"]:active {
 }
 
 #lotteryContainer {
+    width: 100%;
+    height: 100%;
     position:relative;
 }
 #drawPercent {
     color:#F60;
 }
 #paint{
+    width: 100%;
+    height: 100%;
     position: absolute;
     z-index: 99999;
     top: 0;
     left: 0;
 }
 
+img { max-width: 100%;}
+
+.bg-img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position:50% 50%;
+}
+.bg-img-1{
+     background-image: url("/img/cv.jpg");
+ }
+
+.bg-img-2{
+    background-image: url("/img/cv2.jpg");
+}
+
 p.up {
     position: absolute;
-    top: 50%;
+    bottom: 10%;
     left: 50%;
     margin: -14px 0 0 -25px;
     width: 50px;
@@ -181,9 +202,24 @@ p.up {
     animation: start 1.5s infinite ease-in-out;
 }
 
+.icon {
+    display: block;
+    position: absolute;
+    top: 2em;
+    right:2em;
+    z-index: 9998
+}
+
 .icon-up {
     background-image: url(/img/icons.png)!important;
     background-repeat: no-repeat!important;
+}
+
+.icon-sound {
+    width: 44px;
+    height: 44px;
+    background-image: url(/img/icons.png) !important;
+    background-repeat: no-repeat !important;
 }
 
 @-webkit-keyframes start {
@@ -200,4 +236,75 @@ p.up {
     0%,30% {opacity: 0;transform: translate(0,10px);}
     60% {opacity: 1;transform: translate(0,0);}
     100% {opacity: 0;transform: translate(0,-8px);}
+}
+
+/* for loading */
+#loading{
+    color: #282828;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+}
+
+#loading #loadingText{
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+#loading .spinner {
+    margin: 100px auto;
+    width: 10rem;
+    height: 10rem;
+    position: relative;
+    text-align: center;
+    margin-top: 65%;
+    -webkit-animation: rotate 2.0s infinite linear;
+    animation: rotate 2.0s infinite linear;
+}
+
+.dot1, .dot2 {
+    width: 60%;
+    height: 60%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    background-color: #12c2ee;
+    border-radius: 100%;
+
+    -webkit-animation: bounce 2.0s infinite ease-in-out;
+    animation: bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+    top: auto;
+    bottom: 0px;
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+@-webkit-keyframes rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes bounce {
+    0%, 100% { -webkit-transform: scale(0.0) }
+    50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    } 50% {
+          transform: scale(1.0);
+          -webkit-transform: scale(1.0);
+      }
 }

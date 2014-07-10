@@ -7,7 +7,7 @@ $(function(){
 		})
         var wheight = $(window).height();
         var wwidth = $(window).width();
-        $('img.content-img').width(wwidth).height(wheight);
+        //$('img.content-img').width(wwidth).height(wheight);
 	}
 	$(window).on('resize',function(){
 		fixPagesHeight()
@@ -21,12 +21,12 @@ $(function(){
         freeModeFluid: false
     });
 
-    $('#soundControl').click(function(){
+    document.getElementById('soundControl').addEventListener('touchstart',function(){
         if(bgm.paused){
             bgm.play();
         }else{
             bgm.pause();
         }
-    });
+    },false);
 
 })
