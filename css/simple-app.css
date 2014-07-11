@@ -215,14 +215,14 @@ p.up {
 }
 
 .icon-up {
-    background-image: url(/img/icons.png)!important;
+    background-image: url(../img/icons.png)!important;
     background-repeat: no-repeat!important;
 }
 
 .icon-sound {
     width: 44px;
     height: 44px;
-    background-image: url(/img/icons.png) !important;
+    background-image: url(../img/icons.png) !important;
     background-repeat: no-repeat !important;
 }
 
