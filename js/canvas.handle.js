@@ -168,6 +168,7 @@ Lottery.prototype = {
             image.onload = function () {
                 _this.maskCtx.drawImage(this, 0,0,$(window).width(),$(window).height());
                 _this.maskCtx.globalCompositeOperation = 'destination-out';
+                $(_this.mask).trigger('maskloaded');
             }
             image.src = this.cover;
         }
@@ -198,6 +199,7 @@ window.onload = function () {
         }
     });
     lottery.init('img/gallery-2.jpg', 'image');
-    var drawPercentNode = document.getElementById('drawPercent');
-    $('#loading').fadeOut(500);
+    $('#stage').bind('maskloaded',function(){
+        $('#loading').fadeOut(500);
+    });
 }

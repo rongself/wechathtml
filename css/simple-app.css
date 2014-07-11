@@ -209,9 +209,17 @@ p.up {
 .icon {
     display: block;
     position: absolute;
-    top: 2em;
+    top: 4.4em;
     right:2em;
-    z-index: 9998
+    z-index: 99998;
+}
+
+.jump{
+    -webkit-animation: pace-bounce 1s infinite;
+    -moz-animation: pace-bounce 1s infinite;
+    -o-animation: pace-bounce 1s infinite;
+    -ms-animation: pace-bounce 1s infinite;
+    animation: pace-bounce 1s infinite;
 }
 
 .icon-up {
@@ -311,4 +319,101 @@ p.up {
           transform: scale(1.0);
           -webkit-transform: scale(1.0);
       }
+}
+
+/*jump*/
+@-webkit-keyframes pace-bounce {
+    0% {
+        top: 2rem;
+        -webkit-animation-timing-function: ease-in;
+    }
+    40% {}
+    50% {
+        top: 4rem;
+        height: 140px;
+        -webkit-animation-timing-function: ease-out;
+    }
+    55% {
+        top: 4.4rem;
+        height: 120px;
+        border-radius: 70px / 60px;
+        -webkit-animation-timing-function: ease-in;
+    }
+    65% {
+        top: 4rem;
+        height: 140px;
+        border-radius: 70px;
+        -webkit-animation-timing-function: ease-out;
+    }
+    95% {
+        top: 2rem;
+        -webkit-animation-timing-function: ease-in;
+    }
+    100% {
+        top: 2rem;
+        -webkit-animation-timing-function: ease-in;
+    }
+}
+
+@-moz-keyframes pace-bounce {
+    0% {
+        top: 2rem;
+        -moz-animation-timing-function: ease-in;
+    }
+    40% {}
+    50% {
+        top: 4rem;
+        height: 140px;
+        -moz-animation-timing-function: ease-out;
+    }
+    55% {
+        top: 4.4rem;
+        height: 120px;
+        border-radius: 70px / 60px;
+        -moz-animation-timing-function: ease-in;
+    }
+    65% {
+        top: 4rem;
+        height: 140px;
+        border-radius: 70px;
+        -moz-animation-timing-function: ease-out;}
+    95% {
+        top: 2rem;
+        -moz-animation-timing-function: ease-in;
+    }
+    100% {top: 2rem;
+        -moz-animation-timing-function: ease-in;
+    }
+}
+
+@keyframes pace-bounce {
+    0% {
+        top: 2rem;
+        animation-timing-function: ease-in;
+    }
+    50% {
+        top: 4rem;
+        height: 140px;
+        animation-timing-function: ease-out;
+    }
+    55% {
+        top: 4.4rem;
+        height: 120px;
+        border-radius: 70px / 60px;
+        animation-timing-function: ease-in;
+    }
+    65% {
+        top: 4rem;
+        height: 140px;
+        border-radius: 70px;
+        animation-timing-function: ease-out;
+    }
+    95% {
+        top: 2rem;
+        animation-timing-function: ease-in;
+    }
+    100% {
+        top: 2rem;
+        animation-timing-function: ease-in;
+    }
 }

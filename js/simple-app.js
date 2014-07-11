@@ -23,8 +23,10 @@ $(function(){
 
     document.getElementById('soundControl').addEventListener('touchstart',function(){
         if(bgm.paused){
+            $(this).addClass('jump');
             bgm.play();
         }else{
+            $(this).removeClass('jump');
             bgm.pause();
         }
     },false);
