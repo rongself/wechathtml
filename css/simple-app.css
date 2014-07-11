@@ -181,15 +181,15 @@ img { max-width: 100%;}
     background-position:50% 50%;
 }
 .bg-img-1{
-     background-image: url("/img/gallery-1.jpg");
+     background-image: url("../img/gallery-1.jpg");
  }
 
 .bg-img-2{
-    background-image: url("/img/gallery-2.jpg");
+    background-image: url("../img/gallery-2.jpg");
 }
 
 .bg-img-3{
-    background-image: url("/img/gallery-3.jpg");
+    background-image: url("../img/gallery-3.jpg");
 }
 
 p.up {
