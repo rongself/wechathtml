@@ -188,7 +188,7 @@ function getRandomStr(len) {
 }
 
 window.onload = function () {
-    var lottery = new Lottery('lotteryContainer', 'img/cv.jpg', 'image', $(window).width(),$(window).height(),function (percent) {
+    var lottery = new Lottery('lotteryContainer', 'img/mask.jpg', 'image', $(window).width(),$(window).height(),function (percent) {
         //console.log(percent);
         if(percent>=60){
             $('#paint').fadeOut(300,function(){
@@ -197,7 +197,7 @@ window.onload = function () {
             });
         }
     });
-    lottery.init('img/cv2.jpg', 'image');
+    lottery.init('img/gallery-2.jpg', 'image');
     var drawPercentNode = document.getElementById('drawPercent');
     $('#loading').fadeOut(500);
 }
