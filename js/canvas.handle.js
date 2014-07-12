@@ -46,6 +46,8 @@ Lottery.prototype = {
     startLine:function(x,y){
         this.maskCtx.lineWidth = 60 ;
         this.maskCtx.lineCap = 'round';
+        this.maskCtx.lineJoin = 'round';
+        this.maskCtx.beginPath();
         this.maskCtx.moveTo(x,y);
 
     },
@@ -101,7 +103,7 @@ Lottery.prototype = {
         var frame = 0;
         this.mask.addEventListener(moveEvtName, function (e) {
             frame++;
-            if(frame>2){
+            if(frame>3){
                 if (!device && !isMouseDown) {
                     return false;
                 }
