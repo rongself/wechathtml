@@ -209,9 +209,9 @@ p.up {
 .icon {
     display: block;
     position: absolute;
-    top: 4.4em;
-    right:2em;
-    z-index: 99998;
+    top: 4.4rem;
+    right:2rem;
+    z-index: 99997;
 }
 
 .jump{
@@ -220,6 +220,15 @@ p.up {
     -o-animation: pace-bounce 1s infinite;
     -ms-animation: pace-bounce 1s infinite;
     animation: pace-bounce 1s infinite;
+}
+
+.touch-layer{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 8.4rem;
+    width: 8.4rem;
+    z-index: 99998;
 }
 
 .icon-up {

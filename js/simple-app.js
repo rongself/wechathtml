@@ -18,15 +18,25 @@ $(function(){
 	var pages = $('.swiper-container').swiper({
         mode: 'vertical',
         freeMode: false,
-        freeModeFluid: false
+        freeModeFluid: false,
+        onSlideChangeEnd:function(item){
+            if(item.activeIndex == $('.bg-img').length-1){
+                $('.up').fadeOut(300);
+            }else{
+                if(!$('.up').is(':visible')){
+                    $('.up').fadeIn(300);
+                }
+            }
+        }
+
     });
 
-    document.getElementById('soundControl').addEventListener('touchstart',function(){
+    document.getElementsByClassName('touch-layer')[0].addEventListener('touchstart',function(){
         if(bgm.paused){
-            $(this).addClass('jump');
+            $(this).children('#soundControl').addClass('jump');
             bgm.play();
         }else{
-            $(this).removeClass('jump');
+            $(this).children('#soundControl').removeClass('jump');
             bgm.pause();
         }
     },false);

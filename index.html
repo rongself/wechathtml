@@ -30,6 +30,9 @@
 	<link rel="stylesheet" href="css/simple-app.css">
 </head>
 <body>
+    <div style="display: none">
+        <img src="img/logo.jpg" alt="logo"/>
+    </div>
     <div id="loading">
         <div class="spinner">
             <div class="dot1"></div>
@@ -55,9 +58,11 @@
             </div>
 		</div>
 	</div>
-    <span id="soundControl" class="icon jump">
-        <i class="icon-3x icon-music"></i>
-    </span>
+    <div class="touch-layer">
+        <span id="soundControl" class="icon jump">
+            <i class="icon-3x icon-music"></i>
+        </span>
+    </div>
     <p class="up icon-up"></p>
     <audio id="bgm" src="media/bgm.mp3" loop="loop"></audio>
 	<script src="js/jquery.min.js"></script>
