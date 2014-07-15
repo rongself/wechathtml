@@ -191,7 +191,17 @@ img { max-width: 100%;}
 .bg-img-3{
     background-image: url("../img/gallery-3.jpg");
 }
+.bg-img-4{
+     background-image: url("../img/gallery-4.jpg");
+ }
 
+.bg-img-5{
+    background-image: url("../img/gallery-5.jpg");
+}
+
+.bg-img-6{
+    background-image: url("../img/gallery-6.jpg");
+}
 p.up {
     position: absolute;
     bottom: 10%;
