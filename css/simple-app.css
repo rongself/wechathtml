@@ -440,3 +440,6 @@ p.up {
         animation-timing-function: ease-in;
     }
 }
+.swiper-slide {
+    position: relative;
+}
