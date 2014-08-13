@@ -1,5 +1,8 @@
 /**
  * Created by http://www.cnblogs.com/jscode/p/3580878.html
+ *
+ * Modify by Ron Cai
+ *
  */
 function Lottery(id, cover, coverType, width, height, drawPercentCallback) {
     this.conId = id;
@@ -188,20 +191,4 @@ function getRandomStr(len) {
     for( var i=0; i < len; i++ )
         text += possible.charAt(Math.floor(Math.random() * possible.length));
     return text;
-}
-
-window.onload = function () {
-    var lottery = new Lottery('lotteryContainer', 'img/mask.jpg', 'image', $(window).width(),$(window).height(),function (percent) {
-        //console.log(percent);
-        if(percent>=60){
-            $('#paint').fadeOut(300,function(){
-                $(this).remove();
-                bgm.play();
-            });
-        }
-    });
-    lottery.init('img/gallery-2.jpg', 'image');
-    $('#stage').bind('maskloaded',function(){
-        $('#loading').fadeOut(500);
-    });
 }
