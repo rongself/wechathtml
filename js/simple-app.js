@@ -37,7 +37,7 @@ $(function(){
                         var loading = $(loadingHtml).appendTo(ele);
                     }
                     $('<img/>').bind('load',function(){
-                        $(ele).css('background-image','url("../'+url+'")');
+                        $(ele).css('background-image','url("'+url+'")').hide().fadeIn(300);
                         loading.remove();
                     }).attr('src',url);
 
