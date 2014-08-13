@@ -32,10 +32,12 @@ $(function(){
                                 <div class="dot1"></div>\
                                 <div class="dot2"></div>\
                                 </div>\
-                                </div>'
-                    var loading = $(loadingHtml).appendTo(ele);
+                                </div>';
+                    if(!$(ele).has('#loading').length > 0){
+                        var loading = $(loadingHtml).appendTo(ele);
+                    }
                     $('<img/>').bind('load',function(){
-                        $(ele).css('background-image','url("'+url+'")');
+                        $(ele).css('background-image','url("../'+url+'")');
                         loading.remove();
                     }).attr('src',url);
 
