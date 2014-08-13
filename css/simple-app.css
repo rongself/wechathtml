@@ -310,6 +310,10 @@ p.up {
     animation: bounce 2.0s infinite ease-in-out;
 }
 
+.orange .dot1, .orange .dot2 {
+    background-color: #ee6914;
+}
+
 .dot2 {
     top: auto;
     bottom: 0px;

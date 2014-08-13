@@ -21,18 +21,54 @@ $(function(){
 	fixPagesHeight()
 
 	//Init Pages
+    var  imageLazyLoader = function(){
+        var self = this;
+        self.load = function(ele){
+            var url = $(ele).attr('data-img-src');
+            if(url){
+                if($(ele).css('background-image')=='none'){
+                    var loadingHtml = '<div id="loading" style="background-color: transparent;">\
+                                <div class="spinner">\
+                                <div class="dot1"></div>\
+                                <div class="dot2"></div>\
+                                </div>\
+                                </div>'
+                    var loading = $(loadingHtml).appendTo(ele);
+                    $('<img/>').bind('load',function(){
+                        $(ele).css('background-image','url("'+url+'")');
+                        loading.remove();
+                    }).attr('src',url);
+
+                }
+            }else{
+                throw 'this div has not "data-img-src" attr';
+            }
+        }
+    }
+    var loader = new imageLazyLoader();
+    loader.load($('.swiper-wrapper .bg-img').eq(0));
+    loader.load($('.swiper-wrapper .bg-img').eq(1));
 	var pages = $('.swiper-container').swiper({
         mode: 'vertical',
         freeMode: false,
         freeModeFluid: false,
-        onSlideChangeEnd:function(item){
-            if(item.activeIndex == $('.bg-img').length-1){
+        onSlideChangeStart:function(item){
+            var count = item.slides.length;
+            var index = item.activeIndex;
+            //console.log(item);
+            if(index+1<count){
+                loader.load($(item.slides[index+1]).children('div'));
+            }
+
+            if(index == $('.bg-img').length-1){
                 $('.up').fadeOut(300);
             }else{
                 if(!$('.up').is(':visible')){
                     $('.up').fadeIn(300);
                 }
             }
+
+
         }
 
     });
@@ -63,5 +99,4 @@ $(function(){
     $('#stage').bind('maskloaded',function(){
         $('#loading').fadeOut(500);
     });
-
 })
