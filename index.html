@@ -67,7 +67,9 @@
                 var $img = $('<div class="bg-img"/>').attr('data-img-src','img/'+i+'.jpg');
                 $('<div class="swiper-slide"/>').append($img).appendTo('#swiperWrapper');
             }
-            $('#swiperWrapper').find('.swiper-slide:last').append('<i class="last-btn"><a href="http://baidu.com"><img src="img/button.gif" alt=""/></a></i>');
+            $('#swiperWrapper').find('.swiper-slide>.bg-img:last').on('imgload',function(){
+               $(this).after('<i class="last-btn"><a href="http://baidu.com"><img src="img/button.gif" alt=""/></a></i>');
+            });
         })(jQuery);
     </script>
 	<!-- Don't forget to get the latest Swiper and scrollbar version here-->

@@ -36,8 +36,8 @@ $(function(){
                     if(!$(ele).has('#loading').length > 0){
                         var loading = $(loadingHtml).appendTo(ele);
                     }
-                    $('<img/>').bind('load',function(){
-                        $(ele).css('background-image','url("'+url+'")').hide().fadeIn(300);
+                    $('<img/>').on('load',function(){
+                        $(ele).css('background-image','url("'+url+'")').hide().fadeIn(300).trigger('imgload');
                         if(loading&&loading.length > 0){
                             loading.remove();
                         }
