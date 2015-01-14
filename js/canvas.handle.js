@@ -1,8 +1,5 @@
 /**
  * Created by http://www.cnblogs.com/jscode/p/3580878.html
- *
- * Modify by Ron Cai
- *
  */
 function Lottery(id, cover, coverType, width, height, drawPercentCallback) {
     this.conId = id;
@@ -183,12 +180,4 @@ Lottery.prototype = {
         this.lotteryType = lotteryType || 'image';
         this.drawLottery();
     }
-}
-
-function getRandomStr(len) {
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    for( var i=0; i < len; i++ )
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-    return text;
 }

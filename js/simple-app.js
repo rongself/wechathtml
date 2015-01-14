@@ -38,7 +38,9 @@ $(function(){
                     }
                     $('<img/>').bind('load',function(){
                         $(ele).css('background-image','url("'+url+'")').hide().fadeIn(300);
-                        loading.remove();
+                        if(loading&&loading.length > 0){
+                            loading.remove();
+                        }
                     }).attr('src',url);
 
                 }
@@ -96,7 +98,7 @@ $(function(){
             }
         }
     );
-    lottery.init('img/gallery-2.jpg', 'image');
+    lottery.init('img/1.jpg', 'image');
 
     $('#stage').bind('maskloaded',function(){
         $('#loading').fadeOut(500);

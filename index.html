@@ -32,7 +32,7 @@
 </head>
 <body>
     <div style="display: none">
-        <img src="img/logo.jpg" alt="logo"/>
+        <img src="img/logo.png" alt="logo"/>
         <h1>note</h1>
         <p>this is a test application..</p>
     </div>
@@ -49,25 +49,7 @@
         </div>
     </div>
 	<div class="swiper-pages swiper-container">
-		<div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="bg-img" data-img-src="img/gallery-1.jpg"></div>
-            </div>
-			<div class="swiper-slide">
-               <div class="bg-img" data-img-src="img/gallery-2.jpg"></div>
-			</div>
-            <div class="swiper-slide">
-                <div class="bg-img" data-img-src="img/gallery-3.jpg"></div>
-            </div>
-            <div class="swiper-slide">
-                <div class="bg-img" data-img-src="img/gallery-4.jpg"></div>
-            </div>
-            <div class="swiper-slide">
-               <div class="bg-img" data-img-src="img/gallery-5.jpg"></div>
-            </div>
-            <div class="swiper-slide">
-                <div class="bg-img" data-img-src="img/gallery-6.jpg"></div>
-            </div>
+		<div class="swiper-wrapper" id="swiperWrapper">
 		</div>
 	</div>
     <div class="touch-layer">
@@ -78,6 +60,16 @@
     <p class="up icon-up"></p>
     <audio id="bgm" src="media/bgm.mp3" loop="loop"></audio>
 	<script src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function($){
+            var imgCount = 7;
+            for(var i=1;i<=imgCount;i++){
+                var $img = $('<div class="bg-img"/>').attr('data-img-src','img/'+i+'.jpg');
+                $('<div class="swiper-slide"/>').append($img).appendTo('#swiperWrapper');
+            }
+            $('#swiperWrapper').find('.swiper-slide:last').append('<i class="last-btn"><a href="http://baidu.com"><img src="img/button.gif" alt=""/></a></i>');
+        })(jQuery);
+    </script>
 	<!-- Don't forget to get the latest Swiper and scrollbar version here-->
 	<script src="js/idangerous.swiper-2.0.min.js"></script>
     <script src="js/idangerous.swiper.progress.min.js"></script>

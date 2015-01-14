@@ -20,8 +20,9 @@ body {
 	background-image:      -o-linear-gradient(top, #333, #111);
 	background-image:         linear-gradient(to bottom, #333, #111);
 }
-.swiper-nav .swiper-wrapper {
+.swiper-wrapper {
 	margin: 0 auto;
+    height: 100%;
 }
 .swiper-nav span {
 	cursor: pointer;
@@ -179,28 +180,6 @@ img { max-width: 100%;}
     height: 100%;
     background-size: cover;
     background-position:50% 50%;
-}
-.bg-img-1{
-     background-image: url("../img/gallery-1.jpg");
- }
-
-.bg-img-2{
-    background-image: url("../img/gallery-2.jpg");
-}
-
-.bg-img-3{
-    background-image: url("../img/gallery-3.jpg");
-}
-.bg-img-4{
-     background-image: url("../img/gallery-4.jpg");
- }
-
-.bg-img-5{
-    background-image: url("../img/gallery-5.jpg");
-}
-
-.bg-img-6{
-    background-image: url("../img/gallery-6.jpg");
 }
 p.up {
     position: absolute;
@@ -442,4 +421,12 @@ p.up {
 }
 .swiper-slide {
     position: relative;
+}
+.last-btn{
+    display: block;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 10rem;
+
 }
