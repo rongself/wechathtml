@@ -183,7 +183,7 @@ img { max-width: 100%;}
 }
 p.up {
     position: absolute;
-    bottom: 10%;
+    bottom: 3%;
     left: 50%;
     margin: -14px 0 0 -19px;
     z-index: 99998;
@@ -427,4 +427,13 @@ p.up {
     text-align: center;
     bottom: 10rem;
 
+}
+.text-center{
+    text-align: center;
+}
+
+.loading-text {
+    position: absolute;
+    width: 100%;
+    bottom: 4rem;
 }
