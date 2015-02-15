@@ -4,7 +4,7 @@ body,html {
 }
 html {font-size: 62.5%!important;}
 body {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: Helvetica, "微软雅黑",Arial, sans-serif;
 	font-size: 1.2rem;
 	line-height: 1.5;
 	background: #222;
@@ -201,6 +201,10 @@ p.up {
     z-index: 99997;
 }
 
+.icon-shadow{
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.52);
+}
+
 .jump{
     -webkit-animation: pace-bounce 1s infinite;
     -moz-animation: pace-bounce 1s infinite;
@@ -248,7 +252,7 @@ p.up {
 
 /* for loading */
 #loading{
-    color: #282828;
+    color: #818181;
     width: 100%;
     height: 100%;
     z-index: 999999;
@@ -436,4 +440,34 @@ p.up {
     position: absolute;
     width: 100%;
     bottom: 4rem;
+}
+
+p{
+    margin: 0;
+}
+
+.plr{
+    padding: 0 1rem 0 1rem;
+}
+
+.fc-black {
+    color: #000000;
+}
+
+.fb{
+    font-weight: bold;
+}
+
+.f20 {
+    font-size: 2rem;
+}
+
+.po-ab {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+.f16 {
+    font-size: 1.6rem;
 }
