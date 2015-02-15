@@ -1,9 +1,8 @@
-var device = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|micromessenger/i.test(navigator.userAgent.toLowerCase()));
-
-if(!device){
-    alert('请用手机浏览器浏览已得到最佳效果');
-}
-
+//var device = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|micromessenger/i.test(navigator.userAgent.toLowerCase()));
+//
+//if(!device){
+//    alert('请用手机浏览器浏览已得到最佳效果');
+//}
 $(function(){
     var images = document.getElementsByClassName('bg-img');
 	//Init Pages
