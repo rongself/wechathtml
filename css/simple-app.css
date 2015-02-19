@@ -4,7 +4,7 @@ body,html {
 }
 html {font-size: 62.5%!important;}
 body {
-	font-family: Helvetica, "微软雅黑",Arial, sans-serif;
+	font-family: Helvetica, "黑体",Arial, sans-serif;
 	font-size: 1.2rem;
 	line-height: 1.5;
 	background: #222;
@@ -215,7 +215,7 @@ p.up {
 
 .touch-layer{
     position: absolute;
-    top: 0;
+    top: -1.8rem;
     right: 0;
     height: 8.4rem;
     width: 8.4rem;
@@ -470,4 +470,69 @@ p{
 
 .f16 {
     font-size: 1.6rem;
+}
+
+.animated {
+    -webkit-animation-duration: 2.5s;
+    animation-duration: 2.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
+.img-btn {
+
+}
+.img-btn img{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    margin-left: -25%;
 }

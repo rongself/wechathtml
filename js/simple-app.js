@@ -61,7 +61,16 @@ $(function(){
         }
         $('#loadingCount').text(parseInt((count/images.length)*100)+'%');
         if(count>=images.length){
+            bgm.play();
             $('#loading').fadeOut(500);
+            var image = images[0];
+            var texts = $(image).children('div');
+            texts.each(function(){
+                var className =  $(this).attr('data-class');
+                if(className){
+                    $(this).addClass(className);
+                }
+            });
         }
     });
 
@@ -70,6 +79,32 @@ $(function(){
     var pages = $('.swiper-container').swiper({
         mode: 'vertical',
         freeMode: false,
-        freeModeFluid: false
+        freeModeFluid: false,
+        onSlideChangeStart:function(item){
+            var count = item.slides.length;
+            var index = item.activeIndex;
+            if(index!=0){
+                var image = images[index];
+                var texts = $(image).children('div');
+                texts.each(function(){
+                    var className =  $(this).attr('data-class');
+                    console.log(className);
+                    if(className){
+                        $(this).addClass(className);
+                    }
+                });
+            }
+
+        }
     });
+
+    document.getElementsByClassName('touch-layer')[0].addEventListener('touchstart',function(){
+        if(bgm.paused){
+            $(this).children('#soundControl').addClass('jump');
+            bgm.play();
+        }else{
+            $(this).children('#soundControl').removeClass('jump');
+            bgm.pause();
+        }
+    },false);
 })
