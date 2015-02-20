@@ -220,6 +220,7 @@ p.up {
     height: 8.4rem;
     width: 8.4rem;
     z-index: 99998;
+    opcity:0.8;
 }
 
 .icon-up {

@@ -61,7 +61,6 @@ $(function(){
         }
         $('#loadingCount').text(parseInt((count/images.length)*100)+'%');
         if(count>=images.length){
-            bgm.play();
             $('#loading').fadeOut(500);
             var image = images[0];
             var texts = $(image).children('div');
@@ -71,6 +70,7 @@ $(function(){
                     $(this).addClass(className);
                 }
             });
+            bgm.play();
         }
     });
 
