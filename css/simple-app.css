@@ -528,12 +528,57 @@ p{
     animation-name: fadeIn;
 }
 
-.img-btn {
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
 
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
+
+.img-btn {
+    top: 38%;
+    left: 5%;
 }
 .img-btn img{
     position: absolute;
     top: 35%;
     left: 50%;
     margin-left: -25%;
+}
+.page-14bg{
+    background: url("../img/text.png") no-repeat;
+    background-size: 58%;
+}
+.btn {
+    width: 497px;
+    height: 110px;
+    background: url("../img/text.png") no-repeat;
+    background-position: 0px 113%;
+    background-size: 58%;
 }

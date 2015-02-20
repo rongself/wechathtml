@@ -136,7 +136,9 @@
         </div>
         <div class="swiper-slide">
             <div class="bg-img" data-img-src="img/14.jpg">
-                <div class="img-btn"><a href="//www.kuaikanmanhua.com/m/"><img width="50%" src="img/14_03.jpg" alt=""/></a></div>
+                <div class="po-ab page-14bg" style="width: 247px;height: 50px;right: 0px;top: 2%;background-size: 127%;background-position: 7% 0%;"></div>
+                <div class="last-text page-14bg po-ab animated" data-class="fadeInDown" style="width: 200px;height: 100px;background-size: 136%;background-position: 0% 40%;top: 17%;left: 18%;"></div>
+                <div class="img-btn po-ab animated" data-class="fadeInUp" style="animation-delay: 2.5s;-webkit-animation-delay: 2.5s"><div class="btn"></div></div>
             </div>
         </div>
     </div>
@@ -156,5 +158,10 @@
 <script src="js/idangerous.swiper-2.0.min.js"></script>
 <script src="js/idangerous.swiper.progress.min.js"></script>
 <script src="js/simple-app.js"></script>
+<script>
+    $('.img-btn').on('tap',function(){
+        window.location.href = '//www.kuaikanmanhua.com/m/';
+    });
+</script>
 </body>
 </html>
