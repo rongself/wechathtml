@@ -16,7 +16,7 @@
 </head>
 <body>
 <div style="display: none">
-    <img src="img/logo.jpg" alt="logo"/>
+    <img src="img/logo.png" alt="logo"/>
 
     <h1>note</h1>
 
@@ -158,72 +158,11 @@
 <script src="js/idangerous.swiper-2.0.min.js"></script>
 <script src="js/idangerous.swiper.progress.min.js"></script>
 <script src="js/simple-app.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
     $('.img-btn').on('tap',function(){
         window.location.href = '//www.kuaikanmanhua.com/m/';
     });
-</script>
-<script>
-    var imgUrl = 'img/logo.jpg';
-
-    var lineLink = 'http://examples.ronccc.tk/wechathtml/index.html';
-
-    var descContent = "爸妈，我想告诉你们，过年我在干什么…";
-
-    var shareTitle = '还是会想回家';
-    var appid = 'wxfb76e890d56c7f1d';//填入你的appid
-
-    function shareFriend() {
-        WeixinJSBridge.invoke('sendAppMessage',{
-            "appid": appid,
-            "img_url": imgUrl,
-            "img_width": "640",
-            "img_height": "640",
-            "link": lineLink,
-            "desc": descContent,
-            "title": shareTitle
-        }, function(res) {
-            _report('send_msg', res.err_msg);
-        })
-    }
-    function shareTimeline() {
-        WeixinJSBridge.invoke('shareTimeline',{
-            "img_url": imgUrl,
-            "img_width": "640",
-            "img_height": "640",
-            "link": lineLink,
-            "desc": descContent,
-            "title": shareTitle
-        }, function(res) {
-            _report('timeline', res.err_msg);
-        });
-    }
-    function shareWeibo() {
-        WeixinJSBridge.invoke('shareWeibo',{
-            "content": descContent,
-            "url": lineLink
-        }, function(res) {
-            _report('weibo', res.err_msg);
-        });
-    }
-    // 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
-    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-
-// 发送给好友
-        WeixinJSBridge.on('menu:share:appmessage', function(argv){
-            shareFriend();
-        });
-
-// 分享到朋友圈
-        WeixinJSBridge.on('menu:share:timeline', function(argv){
-            shareTimeline();
-        });
-
-// 分享到微博
-        WeixinJSBridge.on('menu:share:weibo', function(argv){
-            shareWeibo();
-        });
-    }, false);
 </script>
 </body>
 </html>
